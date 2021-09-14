@@ -1,0 +1,4 @@
+en esta carpeta se guardan los archivos o paquetes que se pueden llamar desde fuera de la carpeta, gracias al archivo __init.py
+
+se pueden guardar mas archivos en subcarpetas
+todas deben contener un archivo __init__.py

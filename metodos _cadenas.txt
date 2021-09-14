@@ -1,0 +1,15 @@
+upper()		conviertea mayusculas todo
+lower()		convierte a minusculas todo
+capitalize()	primera letra mayuscula
+count()		cuanntas vces aparece una letra o cadena dentro de un texto
+find()		posicion de un caracter o grupo de caracteres	
+isdigit()	si es digito o no(true o false)
+isalum()	si son alfanumericos
+isalpha()	si solo son letras
+split()		separa por palabras utilizando espacios
+strip()		borra espacios sobrantes al inicio y fin
+replace()	cambia letra o palabra por otra
+rfind()		representa el indice de un caractes desde el ultimo
+
+
+http://pyspanishdoc.sourceforge.net/index.html

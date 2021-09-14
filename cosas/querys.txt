@@ -1,0 +1,51 @@
+/*1*/
+select Orders.EmployeeID, LastNAme, FirstName from  OrderDetails 
+join Orders on Orders.OrderID = OrderDetails.OrderID
+join Employees on Employees.EmployeeID = Orders.EmployeeID 
+where CustomerID= 84
+
+/*2*/
+select LastName, FirstName, OrderDate from  OrderDetails
+join Orders on Orders.OrderID = OrderDetails.OrderID
+join Employees on Employees.EmployeeID = Orders.EmployeeID 
+order by LastName
+
+/*3*/
+select LastName, FirstName from  Employees
+where EmployeeID not in (select Orders.EmployeeID from OrderDetails
+join Orders on Orders.OrderID = OrderDetails.OrderID
+join Employees on Employees.EmployeeID = Orders.EmployeeID) 
+
+/*4*/
+select ProductName from Products
+where Price > (select max(Price) from Products where CategoryID = 5)
+
+/*5*/
+select LastName, FirstName, CustomerID, count(*) from  OrderDetails
+join Orders on Orders.OrderID = OrderDetails.OrderID
+join Employees on Employees.EmployeeID = Orders.EmployeeID 
+group by CustomerID
+having count(CustomerID) <> (CustomerID)
+order by LastName
+
+/*6*/
+select LastName, FirstName from  OrderDetails
+join Orders on Orders.OrderID = OrderDetails.OrderID
+join Employees on Employees.EmployeeID = Orders.EmployeeID 
+group by lastname
+having count(CustomerID)>2
+
+/*7*/
+SELECT C.CustomerId, C.CustomerName, C.Country, O.OrderDate
+FROM [Orders] O
+JOIN Customers C
+ON O.CustomerID = C.CustomerID
+WHERE O.OrderDate like '_____09%' and country ='USA'
+
+/*8*/
+SELECT ProductName, P.PRICE, CategoryName, O.CustomerID, CS.CustomerName, CS.Country FROM [Categories] C
+JOIN Products P ON C.CategoryID = P.CategoryID
+JOIN OrderDetails D ON P.ProductID = D.ProductID
+JOIN Orders O ON O.OrderID = D.OrderID
+JOIN Customers CS ON CS.CustomerID = O.CustomerID
+WHERE C.CategoryName NOT IN('Seafood') AND P.PRICE < 15 and country ='Sweden'
